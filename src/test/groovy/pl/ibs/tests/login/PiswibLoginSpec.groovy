@@ -21,7 +21,7 @@ class PiswibLoginSpec extends GebSpec {
         button_submit.click()
 
         then:
-        assert $("div#loginMessage span.ui-messages-error-summary").text() == "Zły login lub hasło."
+        assert message_error.text() == "Zły login lub hasło."
     }
 
     def "login positive"() {
