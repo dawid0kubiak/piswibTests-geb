@@ -1,4 +1,4 @@
-package costam
+package pl.ibs.pages.login
 
 import geb.Page
 

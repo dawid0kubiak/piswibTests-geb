@@ -1,4 +1,4 @@
-package costam
+package pl.ibs.modules
 
 import geb.Module
 
