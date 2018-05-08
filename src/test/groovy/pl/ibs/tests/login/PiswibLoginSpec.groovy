@@ -43,28 +43,9 @@ class PiswibLoginSpec extends GebSpec {
         println "login positive"
         assert $("#loginLabel").text() == good_login
         $("#authTopForm\\:logoutButton").click()
-        assert $("#loginMessage")
     }
 
-    def "login positive 1"() {
-
-        when:
-        to PiswibLoginPage
-      println  page.title
-        and:
-        input_login << good_login
-        input_password << good_password
-        button_submit.click()
-
-        then:
-        println "login positive"
-        assert $("#loginLabel").text() == good_login
-        $("#authTopForm\\:logoutButton").click()
-        assert $("#loginMessage")
-    }
-
-
-    def cleanupSpec() {
+    def cleanup() {
         println "logout"
     }
 }
