@@ -9,6 +9,10 @@ import static pl.ibs.resource.DataLogin.*
 
 class PiswibLoginSpec extends GebSpec {
 
+    def setupSpec() {
+        to PiswibLoginPage
+        login()
+    }
 
     def "login negative"() {
 
@@ -21,6 +25,7 @@ class PiswibLoginSpec extends GebSpec {
         button_submit.click()
 
         then:
+        println "login negative"
         assert message_error.text() == "Zły login lub hasło."
     }
 
@@ -35,8 +40,31 @@ class PiswibLoginSpec extends GebSpec {
         button_submit.click()
 
         then:
-        assert $("#loginLabel").text() == "admin"
+        println "login positive"
+        assert $("#loginLabel").text() == good_login
         $("#authTopForm\\:logoutButton").click()
         assert $("#loginMessage")
+    }
+
+    def "login positive 1"() {
+
+        when:
+        to PiswibLoginPage
+      println  page.title
+        and:
+        input_login << good_login
+        input_password << good_password
+        button_submit.click()
+
+        then:
+        println "login positive"
+        assert $("#loginLabel").text() == good_login
+        $("#authTopForm\\:logoutButton").click()
+        assert $("#loginMessage")
+    }
+
+
+    def cleanupSpec() {
+        println "logout"
     }
 }

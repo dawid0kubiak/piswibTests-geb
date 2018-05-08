@@ -11,4 +11,9 @@ class PiswibLoginPage extends Page {
         button_submit { $("#loginform\\:submita") }
         message_error { $("div#loginMessage span.ui-messages-error-summary") }
     }
+
+   void login(){
+               input_login << 'good_login'
+        println "login"
+    }
 }
